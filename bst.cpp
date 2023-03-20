@@ -77,11 +77,51 @@ public:
 
     void traversal(bst *tmp)
     {
+        int ch;
+        cout<<"1 Inorder"<<endl;
+        cout<<"2 Preorder"<<endl;
+        cout<<"3 Postorder"<<endl;
+        cout<<"4 Exit"<<endl;
+        cout<<"Enter choice:";
+        cin>>ch;
+        switch(ch)
+        {
+        case 1:
+            intrav(tmp);
+            break;
+        case 2:
+            pretrav(tmp);
+            break;
+        case 3:
+            posttrav(tmp);
+            break;
+        case 4:
+            exit(0);
+        }
+    }
+    void intrav(bst *tmp)
+    {
         if(tmp==NULL)
             return;
-        traversal(tmp->left);
+        intrav(tmp->left);
         cout<<tmp->info<<endl;
-        traversal(tmp->right);
+        intrav(tmp->right);
+    }
+    void pretrav(bst *tmp)
+    {
+        if(tmp==NULL)
+            return;
+        cout<<tmp->info<<endl;
+        pretrav(tmp->left);
+        pretrav(tmp->right);
+    }
+    void posttrav(bst *tmp)
+    {
+        if(tmp==NULL)
+            return;
+        posttrav(tmp->left);
+        posttrav(tmp->right);
+        cout<<tmp->info<<endl;
     }
 };
 int main() {
